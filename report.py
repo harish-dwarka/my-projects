@@ -40,13 +40,13 @@ def cwsr():
     data = cursor.fetchall()
     clas = []
     for row in data:
-        clas.append(row)
+        clas.append(row[0])
     print('Distinct Classes', clas)
     cursor.execute("select count(stclass) from student group by stclass")
     data = cursor.fetchall()
     no_o_s = []
     for row in data:
-        no_o_s.append(row)
+        no_o_s.append(row[0])
     print('Students present:', no_o_s)
     import matplotlib.pyplot as pl
     print(pl.pie(no_o_s, labels=clas, autopct="%1.1f%%"))
